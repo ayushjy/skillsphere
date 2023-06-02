@@ -1,118 +1,347 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
+import Image from "next/image"
+import Link from "next/link"
+import Head from 'next/head'
+import { signOut, useSession} from "Next-auth/react"
 
-const inter = Inter({ subsets: ['latin'] })
+const Home = () => {
+  
+  const {data:session}=useSession() 
 
-export default function Home() {
+  function handleSignOut(){
+    signOut()
+  }
+
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    
+  <div>
+    <Head>
+      <title>Home Page</title>
+    </Head>
+    {session? User({session,handleSignOut}):Guest()}
+    </div>
+  )}
+  export default Home
+
+
+  // Authorise User
+
+    function User({session,handleSignOut}){
+      return (
+      <div>
+      <Header />
+      <div className="flex w-full h-[600px] pt-36 px-32">
+        <div className="w-4/5 flex flex-col justify-center gap-2  pr-24 ">
+          <div>
+
+        <div className="flex ">
+          <div className="flex flex-col ">
+        <h4 className="home_text3">{session.user.name}</h4>
+        <h4 className="home_text3">{session.user.email}</h4>
+      </div>
+      <div>
+        <button onClick={handleSignOut} className="home_button bg-[#fe735b] hover:bg-[#f05539] text-white font-bold py-2 px-4 rounded">Sign out</button>
+      </div>
+      </div>
+
+
+            <p className="text-7xl   home_text">We increase your learning experiance by
+              <span className="text-8xl  bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 hundredx">100X</span></p>
+          </div>
+          <div className="pt-4 space-y-6">
+            <p className="text-gray-400 text-xl home_text1">
+              RVR provides hand-picked YouTube courses, real-time discussions, sharing projects, and getting feedback on them. We believe in <span className="text-violet-500 font-semibold">Build-in public</span> and <span className="text-violet-500 font-semibold">Proof of Work</span>.
+            </p>
+            <button className="home_button bg-[#fe735b] hover:bg-[#f05539] text-white font-bold py-2 px-4 rounded">
+              EXPLORE BATCHES
+            </button>
+          </div>
+        </div>
+        <div className="flex justify-center items-center w-1/2">
+          <Image src="/assets/Home.jpg" alt="My Home Image" width={1600} height={1200} className="h-4/5 object-cover rounded-full" />
+        </div>
+      </div>
+      <div className=" mt-32">
+        <h2 className="text-center text-5xl home_text">Our Community Experts</h2>
+        <h2 className="text-center text-lg home_text3 mt-3 mb-8">Join our community of passionate and dedicated coaches</h2>
+        <div className="flex justify-center flex-wrap w-full h-2/5  gap-4 px-36">
+          <div className="flex flex-col px-9 items-center  bg-red-100 py-7 gap-1"    >
+            <Image src="/assets/virat.png" alt="My Home Image" width={200} height={1200} className="rounded-full pb-2" />
+            <h1 className="text-2xl home_button">Er. Rahul</h1>
+            <p className="home_text2 text-gray-800">Mathematics</p>
+            <p className="home_text2 text-gray-800">10+ years of Experiance</p>
+          </div>
+          <div className="flex flex-col px-9 items-center  bg-red-100 py-7 gap-1"    >
+            <Image src="/assets/virat.png" alt="My Home Image" width={200} height={1200} className="rounded-full pb-2" />
+            <h1 className="text-2xl home_button">Er. Rahul</h1>
+            <p className="home_text2 text-gray-800">Mathematics</p>
+            <p className="home_text2 text-gray-800">10+ years of Experiance</p>
+          </div>
+          <div className="flex flex-col px-9 items-center  bg-red-100 py-7 gap-1"    >
+            <Image src="/assets/virat.png" alt="My Home Image" width={200} height={1200} className="rounded-full pb-2" />
+            <h1 className="text-2xl home_button">Er. Rahul</h1>
+            <p className="home_text2 text-gray-800">Mathematics</p>
+            <p className="home_text2 text-gray-800">10+ years of Experiance</p>
+          </div>
+          <div className="flex flex-col px-9 items-center  bg-red-100 py-7 gap-1"    >
+            <Image src="/assets/virat.png" alt="My Home Image" width={200} height={1200} className="rounded-full pb-2" />
+            <h1 className="text-2xl home_button">Er. Rahul</h1>
+            <p className="home_text2 text-gray-800">Mathematics</p>
+            <p className="home_text2 text-gray-800">10+ years of Experiance</p>
+          </div>
+
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      {/* Trending courses */}
+
+      <div className=" mt-28">
+        <h2 className="text-center text-5xl home_text">Trending courses ongoing</h2>
+        <p className="text-center text-lg home_text3 mt-6 mb-12">These are the selected courses from YouTube to build your focus on learning rather than finding courses.</p>
+        <div className="flex justify-center flex-wrap w-full h-2/5  gap-8  px-36">
+
+          <div className="flex flex-col border  border-x-zinc-950  border-b-zinc-950 rounded-2xl h-1/5 w-[350px]">
+            <div className="h-1/2">
+              <Image src="/assets/whatsapp.jpg" width={600} height={600} className="object-cover rounded-t-2xl" />
+            </div>
+            <div className="flex flex-col items-center  h-1/2 py-4 px-4 ">
+              <Link href=""><p className="text-lg home_button pb-1 hover:underline">2022 Flutter Master Class Travel App | Tutorial For...</p>
+                <p className="text-xs text-gray-500 home_text2">From this tutorial we build a flutter cubit state management app. We will build it step by step. We ...</p></Link>
+            </div>
+          </div>
+          <div className="flex flex-col border  border-x-zinc-950  border-b-zinc-950 rounded-2xl h-1/5 w-[350px]">
+            <div className="h-1/2">
+              <Image src="/assets/flutter.jpg" width={600} height={600} className="object-cover rounded-t-2xl" />
+            </div>
+            <div className="flex flex-col items-center  h-1/2 py-4 px-4 ">
+              <Link href=""><p className="text-lg home_button pb-1 hover:underline">2022 Flutter Master Class Travel App | Tutorial For...</p>
+                <p className="text-xs text-gray-500 home_text2">From this tutorial we build a flutter cubit state management app. We will build it step by step. We ...</p></Link>
+            </div>
+          </div>
+          <div className="flex flex-col border  border-x-zinc-950  border-b-zinc-950 rounded-2xl h-1/5 w-[350px]">
+            <div className="h-1/2">
+              <Image src="/assets/Node.jpg" width={600} height={600} className="object-cover rounded-t-2xl" />
+            </div>
+            <div className="flex flex-col items-center  h-1/2 py-4 px-4 ">
+              <Link href=""><p className="text-lg home_button pb-1 hover:underline">2022 Flutter Master Class Travel App | Tutorial For...</p>
+                <p className="text-xs text-gray-500 home_text2">From this tutorial we build a flutter cubit state management app. We will build it step by step. We ...</p></Link>
+            </div>
+          </div>
+
+        </div>
+        <div className="flex justify-center mt-8">
+          <button className="home_button bg-[#fe735b] hover:bg-[#f05539] text-white font-bold py-2 px-4 rounded">
+            VIEW MORE
+          </button>
+        </div>
       </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      {/* Awesome feature */}
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+      <div className=" mt-28">
+        <h2 className="text-center text-5xl home_text">The Only “Platform” You Need To Learn</h2>
+        <p className="text-center text-lg home_text3 mt-3 mb-6">Here are the possible scenarios to get the most out of this platform</p>
+        <div className="flex w-full h-[600px]  px-36">
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
+          {/* left flex */}
+          <div className="flex flex-col justify-center flex-wrap w-1/2 gap-4">
+            <div className="flex flex-col justify-center items-center h-1/3 w-2/4 px-2  gap-2 bg-red-100 rounded-2xl">
+              <p className="text-center text-lg   home_button">Scholarship facility</p>
+              <p className="text-center text-gray-600 text-base">We offer scholarships to help eligible students pursue their dreams and achieve their goals</p>
+            </div>
+            <div className="flex flex-col justify-center  h-2/4 w-2/4 px-3 gap-2 border-2 bg-red-100 rounded-2xl">
+              <p className="text-center text-lg   gap-2 home_button">Real-time discussion panel with markdown support</p>
+              <p className="text-center text-gray-600 text-base">You can discuss your doubts in real-time on MeTrack. So, no stopping after you encounter an error while following a tutorial. You can even post code snippets in the discussions as it is markdown supported.</p>
+            </div>
+            <div className="flex flex-col justify-center items-center h-2/4 w-2/4 px-3 gap-2 border-2 bg-red-100 rounded-2xl">
+              <p className="text-center text-lg   gap-2 home_button">Build in public and proof of work</p>
+              <p className="text-center text-gray-600 text-base">Show your potential clients and recruiters that you've learnt and built something useful. Those who view your project can add a feedback. This will help you improve your project over time. Your project can be an inspiration for others!</p>
+            </div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+
+          </div>
+
+
+          {/* image right flex */}
+          <div className="flex justify-center items-center w-1/2">
+            <Image src="/assets/student.png" alt="My Home Image" width={1600} height={1200} className="h-full object-cover " />
+          </div>
+
+        </div>
       </div>
-    </main>
+        {/* join now */}
+      <div class="relative flex flex-col items-center justify-center py-10 mx-36 my-32  h-96">
+        <h1 class="z-40 text-sm font-bold text-red-400 uppercase">Join Now our amazing community</h1>
+        <h2 class="z-20 max-w-2xl mt-6 text-2xl font-bold tracking-tight text-center lg:text-4xl">Sail through the endless ocean of tech resources on YouTube.</h2>
+        <img alt="line-art" src="https://cdn.discordapp.com/attachments/987256512118399026/991336432541110292/CodiSource_5.png" class="absolute h-16 opacity-70 lg:h-60 left-2 lg:left-10 top-2 lg:top-10"/>
+          <img alt="line-art" src="https://cdn.discordapp.com/attachments/987256512118399026/991335953413185576/CodiSource_4.png" class="absolute h-20 lg:h-60 right-2 bottom-2 lg:right-10 opacity-60 lg:bottom-10"/>
+          <Link href={"/login"}><button class="mt-8 home_button bg-[#fe735b] hover:bg-[#f05539] text-white font-bold py-2 px-4 rounded">Join Now</button></Link>
+          </div>
+
+        {/* footer */}
+        <div>
+          <Footer />
+        </div>
+
+      </div>
+      )
+    } 
+
+ function Guest(){
+  return(
+    <div>
+      <Header />
+
+
+      <div className="flex w-full h-[600px] pt-36 px-32">
+
+        <div className="w-4/5 flex flex-col justify-center gap-2  pr-24 ">
+          <div>
+          <div className="text-4xl home_button">Guest Homepage</div>
+
+            <p className="text-7xl   home_text">We increase your learning experiance by
+              <span className="text-8xl  bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 hundredx">100X</span></p>
+          </div>
+          <div className="pt-4 space-y-6">
+            <p className="text-gray-400 text-xl home_text1">
+              RVR provides hand-picked YouTube courses, real-time discussions, sharing projects, and getting feedback on them. We believe in <span className="text-violet-500 font-semibold">Build-in public</span> and <span className="text-violet-500 font-semibold">Proof of Work</span>.
+            </p>
+            <button className="home_button bg-[#fe735b] hover:bg-[#f05539] text-white font-bold py-2 px-4 rounded">
+              EXPLORE BATCHES
+            </button>
+          </div>
+        </div>
+        <div className="flex justify-center items-center w-1/2">
+          <Image src="/assets/Home.jpg" alt="My Home Image" width={1600} height={1200} className="h-4/5 object-cover rounded-full" />
+        </div>
+      </div>
+      <div className=" mt-32">
+        <h2 className="text-center text-5xl home_text">Our Community Experts</h2>
+        <h2 className="text-center text-lg home_text3 mt-3 mb-8">Join our community of passionate and dedicated coaches</h2>
+        <div className="flex justify-center flex-wrap w-full h-2/5  gap-4 px-36">
+          <div className="flex flex-col px-9 items-center  bg-red-100 py-7 gap-1"    >
+            <Image src="/assets/virat.png" alt="My Home Image" width={200} height={1200} className="rounded-full pb-2" />
+            <h1 className="text-2xl home_button">Er. Rahul</h1>
+            <p className="home_text2 text-gray-800">Mathematics</p>
+            <p className="home_text2 text-gray-800">10+ years of Experiance</p>
+          </div>
+          <div className="flex flex-col px-9 items-center  bg-red-100 py-7 gap-1"    >
+            <Image src="/assets/virat.png" alt="My Home Image" width={200} height={1200} className="rounded-full pb-2" />
+            <h1 className="text-2xl home_button">Er. Rahul</h1>
+            <p className="home_text2 text-gray-800">Mathematics</p>
+            <p className="home_text2 text-gray-800">10+ years of Experiance</p>
+          </div>
+          <div className="flex flex-col px-9 items-center  bg-red-100 py-7 gap-1"    >
+            <Image src="/assets/virat.png" alt="My Home Image" width={200} height={1200} className="rounded-full pb-2" />
+            <h1 className="text-2xl home_button">Er. Rahul</h1>
+            <p className="home_text2 text-gray-800">Mathematics</p>
+            <p className="home_text2 text-gray-800">10+ years of Experiance</p>
+          </div>
+          <div className="flex flex-col px-9 items-center  bg-red-100 py-7 gap-1"    >
+            <Image src="/assets/virat.png" alt="My Home Image" width={200} height={1200} className="rounded-full pb-2" />
+            <h1 className="text-2xl home_button">Er. Rahul</h1>
+            <p className="home_text2 text-gray-800">Mathematics</p>
+            <p className="home_text2 text-gray-800">10+ years of Experiance</p>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Trending courses */}
+
+      <div className=" mt-28">
+        <h2 className="text-center text-5xl home_text">Trending courses ongoing</h2>
+        <p className="text-center text-lg home_text3 mt-6 mb-12">These are the selected courses from YouTube to build your focus on learning rather than finding courses.</p>
+        <div className="flex justify-center flex-wrap w-full h-2/5  gap-8  px-36">
+
+          <div className="flex flex-col border  border-x-zinc-950  border-b-zinc-950 rounded-2xl h-1/5 w-[350px]">
+            <div className="h-1/2">
+              <Image src="/assets/whatsapp.jpg" width={600} height={600} className="object-cover rounded-t-2xl" />
+            </div>
+            <div className="flex flex-col items-center  h-1/2 py-4 px-4 ">
+              <Link href=""><p className="text-lg home_button pb-1 hover:underline">2022 Flutter Master Class Travel App | Tutorial For...</p>
+                <p className="text-xs text-gray-500 home_text2">From this tutorial we build a flutter cubit state management app. We will build it step by step. We ...</p></Link>
+            </div>
+          </div>
+          <div className="flex flex-col border  border-x-zinc-950  border-b-zinc-950 rounded-2xl h-1/5 w-[350px]">
+            <div className="h-1/2">
+              <Image src="/assets/flutter.jpg" width={600} height={600} className="object-cover rounded-t-2xl" />
+            </div>
+            <div className="flex flex-col items-center  h-1/2 py-4 px-4 ">
+              <Link href=""><p className="text-lg home_button pb-1 hover:underline">2022 Flutter Master Class Travel App | Tutorial For...</p>
+                <p className="text-xs text-gray-500 home_text2">From this tutorial we build a flutter cubit state management app. We will build it step by step. We ...</p></Link>
+            </div>
+          </div>
+          <div className="flex flex-col border  border-x-zinc-950  border-b-zinc-950 rounded-2xl h-1/5 w-[350px]">
+            <div className="h-1/2">
+              <Image src="/assets/Node.jpg" width={600} height={600} className="object-cover rounded-t-2xl" />
+            </div>
+            <div className="flex flex-col items-center  h-1/2 py-4 px-4 ">
+              <Link href=""><p className="text-lg home_button pb-1 hover:underline">2022 Flutter Master Class Travel App | Tutorial For...</p>
+                <p className="text-xs text-gray-500 home_text2">From this tutorial we build a flutter cubit state management app. We will build it step by step. We ...</p></Link>
+            </div>
+          </div>
+
+        </div>
+        <div className="flex justify-center mt-8">
+          <button className="home_button bg-[#fe735b] hover:bg-[#f05539] text-white font-bold py-2 px-4 rounded">
+            VIEW MORE
+          </button>
+        </div>
+      </div>
+
+      {/* Awesome feature */}
+
+      <div className=" mt-28">
+        <h2 className="text-center text-5xl home_text">The Only “Platform” You Need To Learn</h2>
+        <p className="text-center text-lg home_text3 mt-3 mb-6">Here are the possible scenarios to get the most out of this platform</p>
+        <div className="flex w-full h-[600px]  px-36">
+
+          {/* left flex */}
+          <div className="flex flex-col justify-center flex-wrap w-1/2 gap-4">
+            <div className="flex flex-col justify-center items-center h-1/3 w-2/4 px-2  gap-2 bg-red-100 rounded-2xl">
+              <p className="text-center text-lg   home_button">Scholarship facility</p>
+              <p className="text-center text-gray-600 text-base">We offer scholarships to help eligible students pursue their dreams and achieve their goals</p>
+            </div>
+            <div className="flex flex-col justify-center  h-2/4 w-2/4 px-3 gap-2 border-2 bg-red-100 rounded-2xl">
+              <p className="text-center text-lg   gap-2 home_button">Real-time discussion panel with markdown support</p>
+              <p className="text-center text-gray-600 text-base">You can discuss your doubts in real-time on MeTrack. So, no stopping after you encounter an error while following a tutorial. You can even post code snippets in the discussions as it is markdown supported.</p>
+            </div>
+            <div className="flex flex-col justify-center items-center h-2/4 w-2/4 px-3 gap-2 border-2 bg-red-100 rounded-2xl">
+              <p className="text-center text-lg   gap-2 home_button">Build in public and proof of work</p>
+              <p className="text-center text-gray-600 text-base">Show your potential clients and recruiters that you've learnt and built something useful. Those who view your project can add a feedback. This will help you improve your project over time. Your project can be an inspiration for others!</p>
+            </div>
+
+
+          </div>
+
+
+          {/* image right flex */}
+          <div className="flex justify-center items-center w-1/2">
+            <Image src="/assets/student.png" alt="My Home Image" width={1600} height={1200} className="h-full object-cover " />
+          </div>
+
+        </div>
+      </div>
+        {/* join now */}
+      <div class="relative flex flex-col items-center justify-center py-10 mx-36 my-32  h-96">
+        <h1 class="z-40 text-sm font-bold text-red-400 uppercase">Join Now our amazing community</h1>
+        <h2 class="z-20 max-w-2xl mt-6 text-2xl font-bold tracking-tight text-center lg:text-4xl">Sail through the endless ocean of tech resources on YouTube.</h2>
+        <img alt="line-art" src="https://cdn.discordapp.com/attachments/987256512118399026/991336432541110292/CodiSource_5.png" class="absolute h-16 opacity-70 lg:h-60 left-2 lg:left-10 top-2 lg:top-10"/>
+          <img alt="line-art" src="https://cdn.discordapp.com/attachments/987256512118399026/991335953413185576/CodiSource_4.png" class="absolute h-20 lg:h-60 right-2 bottom-2 lg:right-10 opacity-60 lg:bottom-10"/>
+          <Link href={"/login"}><button class="mt-8 home_button bg-[#fe735b] hover:bg-[#f05539] text-white font-bold py-2 px-4 rounded">Join Now</button></Link>
+          </div>
+
+        {/* footer */}
+        <div>
+          <Footer />
+        </div>
+
+      </div>
   )
-}
+ }
+
+        
+
+
