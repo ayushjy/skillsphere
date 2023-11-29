@@ -3,12 +3,26 @@ import Layout from "../components/Layout"
 import Link from "next/link"
 import { FaRegUser } from "react-icons/fa";
 import { HiFingerPrint, HiAtSymbol } from "react-icons/hi";
-import {useState} from 'react'
+import {useState} from 'react';
+import {useFormik} from 'formik';
 
-const login = () => {
+const register = () => {
 
     const[show,setShow]=useState(false)
+    const formik = useFormik({
+         initialValues:{
+            username:"",
+            password:"",
+            email:"",
+            cpassword:""
+         },
+          onSubmit
+    })
 
+    
+     async function onSubmit (values){
+        console.log(values);
+    }
 
     return (
         <Layout>
@@ -20,10 +34,11 @@ const login = () => {
                     <h1 className="text-gray-800 text-4xl home_button pb-2">WELCOME TO <Link href={"/"}><span className="text-4xl uppercase home_button tracking-tighter text-[#843fe7]">rvr</span></Link></h1>
                     <p className="w-4/5 mx-auto home_text2 text-base text-gray-600">Join RVR for Free and explore the new learing experience</p>
                 </div>
-                <form className="flex flex-col  items-center gap-5">
+                <form className="flex flex-col  items-center gap-5" onSubmit={formik.handleSubmit}>
                 <div className="input-group relative flex items-center home_text2 text-base">
                         <input className="w-[345px] px-4 py-2 rounded border-2 border-rose-400 focus:border-rose-500 focus:ring-1 focus:ring-rose-500 outline-none pr-8" type="text"
-                            name="usename"
+                            name="username"
+                            {...formik.getFieldProps('username')}
                             placeholder="username"
                         />
                         <span className="absolute right-0 pr-3 text-rose-500 hover:text-rose-600 hover:cursor-pointer">
@@ -34,6 +49,8 @@ const login = () => {
                         <input className="w-[345px] px-4 py-2 rounded border-2 border-rose-400 focus:border-rose-500  focus:ring-1 focus:ring-rose-500 outline-none pr-8" type="email"
                             name="email"
                             placeholder="Email"
+                            {...formik.getFieldProps('email')}
+
                         />
                         <span className="absolute right-0 pr-3 text-rose-500 hover:text-rose-600 hover:cursor-pointer">
                             <HiAtSymbol size={22} />
@@ -43,6 +60,8 @@ const login = () => {
                         <input className="w-[345px] px-4 py-2 rounded border-2 border-rose-400 focus:border-rose-500 focus:ring-1 focus:ring-rose-500 outline-none pr-10" type={`${show?"text":"password"}`}
                             name="password"
                             placeholder="password"
+                            {...formik.getFieldProps('password')}
+
                         />
                         <span className="absolute right-0 pr-3 text-rose-500 hover:text-rose-600 hover:cursor-pointer" onClick={()=>setShow(!show)}>
                             <HiFingerPrint size={22} />
@@ -52,6 +71,8 @@ const login = () => {
                         <input className="w-[345px] px-4 py-2 rounded border-2 border-rose-400 focus:border-rose-500 focus:ring-1 focus:ring-rose-500 outline-none pr-10" type={`${show?"text":"password"}`}
                             name="password"
                             placeholder="Confirm password"
+                            {...formik.getFieldProps('cpassword')}
+
                         />
                         <span className="absolute right-0 pr-3 text-rose-500 hover:text-rose-600 hover:cursor-pointer" onClick={()=>setShow(!show)}>
                             <HiFingerPrint size={22} />
@@ -70,4 +91,4 @@ const login = () => {
     )
 }
 
-export default login
+export default register
