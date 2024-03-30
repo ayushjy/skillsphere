@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
@@ -12,8 +13,7 @@ const Sidebar = () => {
     return (
         <div className='sidebar'>
             <div className="sidebar__top">
-                <h3 className='bold'>Skillsphere</h3>
-                <ExpandMoreIcon />
+                <Link href={"/"}><h3 className='bold'>Skillsphere</h3></Link>
             </div>
             <div className="sidebar__channels">
                 <div className="sidebar__channelsHeader">

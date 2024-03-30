@@ -18,7 +18,6 @@ const Header = () => {
     return (
         <div>
             {session ? User({ session, handleSignOut }) : Guest()}
-
         </div>
     )
 }

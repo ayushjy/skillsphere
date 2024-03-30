@@ -15,5 +15,7 @@ module.exports = {
       borderColor: ['focus-visible'],
     },
   },
-  plugins: [],
-}
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
+};

@@ -1,5 +1,5 @@
 import Sidebar from "@/components/Sidebar"
-import Chat from "@/components/chat"
+import Chat from "@/components/Chat"
 const index = () => {
   return (
     <div className="app">

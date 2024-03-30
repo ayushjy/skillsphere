@@ -32,7 +32,7 @@ const register = () => {
             <section className="w-3/4 flex  mx-auto flex-col gap-8 ">
                 <div className="title">
                     <h1 className="text-gray-800 text-4xl home_button pb-2">WELCOME TO <Link href={"/"}><span className="text-4xl uppercase home_button tracking-tighter text-[#843fe7]">rvr</span></Link></h1>
-                    <p className="w-4/5 mx-auto home_text2 text-base text-gray-600">Join RVR for Free and explore the new learing experience</p>
+                    <p className="w-4/5 mx-auto home_text2 text-base text-gray-600">Join Skillsphere for Free and explore the new learing experience</p>
                 </div>
                 <form className="flex flex-col  items-center gap-5" onSubmit={formik.handleSubmit}>
                 <div className="input-group relative flex items-center home_text2 text-base">
