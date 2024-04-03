@@ -42,6 +42,66 @@ li{
     color: #FFFFFFCC;
   }
 
+  /* .animate-scrolling {
+    animation: scroll 10s linear infinite backwards;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  } */
+  
+  .banner {
+    padding-inline: 8%;
+    text-align: center;
+  }
+  
+  
+  .bannerImage {
+    max-width:fit-content;
+    height: 8rem;
+    object-fit: cover;
+  }
+  
+  img:last-of-type {
+    padding-left: 0;
+  }
+  
+  .inner {
+    height: 8rem;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .wrapper {
+    position: absolute;
+    display: flex;
+    gap: 55px;
+  }
+  
+  section {
+    display: flex;
+    gap: 55px;
+    animation: swipe var(--speed) linear infinite backwards;
+  }
+  
+  @keyframes swipe {
+    0% {
+      transform: translate(0);
+    }
+  
+    100% {
+      transform: translate(-100%);
+    }
+  }
+  
+
+  
   /* sidebar css */
 
   .sidebar{

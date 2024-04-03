@@ -2,18 +2,19 @@ import Link from "next/link"
 import Image from "next/image"
 import { useRouter } from "next/router"
 import { signOut, useSession } from "Next-auth/react"
+import { useAppSelector } from "@/lib/hooks"
+import { selectUser } from "@/lib/features/user/userSlice"
 
 const Header = () => {
     const router = useRouter();
     const { data: session } = useSession()
-
-    const handleSignOut =async(event) =>{
+    // const userInfo = useAppSelector(selectUser);
+    // console.log(userInfo)
+    const handleSignOut = async (event) => {
         event.preventDefault();
         await signOut({ redirect: false })
         router.push("/");
     };
-   
-      
 
     return (
         <div>
@@ -69,17 +70,17 @@ function Guest() {
             </div>
             <div className="flex items-center">
                 <div>
-                <ul className="flex space-x-12 mr-16 ">
-                    {/* <li className="tracking-wide border-b-2 border-transparent hover:text-yellow-500 hover:border-yellow-500">
+                    <ul className="flex space-x-12 mr-16 ">
+                        {/* <li className="tracking-wide border-b-2 border-transparent hover:text-yellow-500 hover:border-yellow-500">
                         <Link href="/">HOME</Link>
                     </li> */}
-                    <li className=" tracking-wide border-b-2 border-transparent hover:text-yellow-500 hover:border-yellow-500">
-                        <Link href="/about">COMPANY</Link>
-                    </li>
-                    {/* <li className=" tracking-wide border-b-2 border-transparent hover:text-yellow-500 hover:border-yellow-500">
+                        <li className=" tracking-wide border-b-2 border-transparent hover:text-yellow-500 hover:border-yellow-500">
+                            <Link href="/about">COMPANY</Link>
+                        </li>
+                        {/* <li className=" tracking-wide border-b-2 border-transparent hover:text-yellow-500 hover:border-yellow-500">
                         <Link href="/contact">CONTACT</Link>
                     </li> */}
-                </ul>
+                    </ul>
                 </div>
                 <div>
                     <Link href="/login"><button className="home_text1 tracking-wide  rounded bg-[#fe735b] hover:bg-[#f05539]  text-white px-4 py-2">SIGN IN</button></Link>

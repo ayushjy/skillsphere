@@ -1,13 +1,13 @@
-import firebase from 'firebase';
+import firebase from './Firebase';
 const firebaseConfig = {
-    apiKey: "AIzaSyCRgEQwdAulk3cJORK27aMXxEduzvIM9bM",
-    authDomain: "discord-discussion.firebaseapp.com",
-    projectId: "discord-discussion",
-    storageBucket: "discord-discussion.appspot.com",
-    messagingSenderId: "1080685517856",
-    appId: "1:1080685517856:web:2eb468fa3e7ca48065f045",
-    measurementId: "G-5C8BRDNHR8"
-  };
+  apiKey: "AIzaSyAnIYuNyWVwxNnRpfeC9tHGYCDJru7c3Lw",
+  authDomain: "skillsphere-68cae.firebaseapp.com",
+  projectId: "skillsphere-68cae",
+  storageBucket: "skillsphere-68cae.appspot.com",
+  messagingSenderId: "1049305875061",
+  appId: "1:1049305875061:web:597e7b65a0f4636e64ee3c",
+  measurementId: "G-0ETG56ZE2P"
+};
   const firebaseApp = firebase.initializeApp(firebaseConfig);
   const db = firebaseApp.firestore();
   const auth= firebase.auth();

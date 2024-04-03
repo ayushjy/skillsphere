@@ -5,6 +5,7 @@ import Link from "next/link"
 
 import { AiFillHtml5 } from "react-icons/ai"
 const explore = ({ data }) => {
+    console.log(data)
     return (
         <div>
             <Header />

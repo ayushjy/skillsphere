@@ -3,7 +3,7 @@ import Image from 'next/image'
 const SpecialFeatures = () => {
     return (
         <div>
-            <div className=" mt-28">
+            <div className=" mt-44">
                 <h2 className="text-center text-5xl home_text">The Only “Platform” You Need To Learn</h2>
                 <p className="text-center text-lg home_text3 mt-3 mb-6">Here are the possible scenarios to get the most out of this platform</p>
                 <div className="flex w-full h-[600px]  px-36">        

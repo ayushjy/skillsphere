@@ -9,6 +9,7 @@ import {useFormik} from 'formik';
 const register = () => {
 
     const[show,setShow]=useState(false)
+    const[showcp,setShowcp]=useState(false)
     const formik = useFormik({
          initialValues:{
             username:"",
@@ -57,13 +58,13 @@ const register = () => {
                         </span>
                     </div>
                     <div className="input-group relative flex items-center text-base home_text2 ">
-                        <input className="w-[345px] px-4 py-2 rounded border-2 border-rose-400 focus:border-rose-500 focus:ring-1 focus:ring-rose-500 outline-none pr-10" type={`${show?"text":"password"}`}
+                        <input className="w-[345px] px-4 py-2 rounded border-2 border-rose-400 focus:border-rose-500 focus:ring-1 focus:ring-rose-500 outline-none pr-10" type={`${showcp?"text":"password"}`}
                             name="password"
                             placeholder="password"
                             {...formik.getFieldProps('password')}
 
                         />
-                        <span className="absolute right-0 pr-3 text-rose-500 hover:text-rose-600 hover:cursor-pointer" onClick={()=>setShow(!show)}>
+                        <span className="absolute right-0 pr-3 text-rose-500 hover:text-rose-600 hover:cursor-pointer" onClick={()=>setShowcp(!showcp)}>
                             <HiFingerPrint size={22} />
                         </span>
                     </div>
