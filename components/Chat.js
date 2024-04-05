@@ -35,6 +35,7 @@ const Chat = () => {
   const handleSendMessageClick = (e) => {
     e.preventDefault();
     sendMessage(currentChannelId);
+    setInput("");
   };
   
   const sendMessage = async (currentChannelId) => {
@@ -43,7 +44,7 @@ const Chat = () => {
       message: input,
       user: user,
     })
-    setInput("");
+    
   };
 
 
