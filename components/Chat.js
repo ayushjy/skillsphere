@@ -50,8 +50,7 @@ const Chat = () => {
 
   return (
     <div className="chat">
-      <ChatHeader channelName={channelName} />
-     
+      <ChatHeader channelName={channelName} /> 
       <div className="chat__messages">
       {messages.map((message) => (
           <Message 

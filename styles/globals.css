@@ -115,7 +115,7 @@ li{
     display:flex;
     justify-content:space-between;
     align-items: center;
-    padding: 20px;
+    padding:20px;
     background-color:#2f3135;
     color:white;
     border-bottom: 3px solid #2f3135;
@@ -198,7 +198,7 @@ li{
   .chat{
     display: flex;
     flex-direction: column;
-    flex: 0.75;
+    flex: 1;
     background-color: #363a3f;
     height:100vh;
   }

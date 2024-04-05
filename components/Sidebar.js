@@ -62,7 +62,7 @@ function User({session,channels,setChannels,isPopupVisible,setIsPopupVisible}){
         <div className='sidebar '>
             <div className="sidebar__top">
                 <Link href={"/"}><h3 className='bold'>Skillsphere</h3></Link>
-                <ExpandMoreIcon />
+                {/* <ExpandMoreIcon /> */}
             </div>
             <div className="sidebar__channels">
                 <div className="sidebar__channelsHeader">
@@ -89,7 +89,7 @@ function User({session,channels,setChannels,isPopupVisible,setIsPopupVisible}){
                     <h3>Voice Connected</h3>
                     <p>Stream</p>
                 </div>
-                <div className="sidebar__voiceIcons">
+                <div className="sidebar__voiceIcons flex items-center gap-1">
                 <IoIosInformationCircleOutline size={25}/>                    
                 <CallIcon />
                 </div>
@@ -100,7 +100,7 @@ function User({session,channels,setChannels,isPopupVisible,setIsPopupVisible}){
                     <h3>{session.user.name}</h3>
                     <p>{session.user.email}</p>
                 </div>
-                <div className="sidebar__profileIcons flex items-center">
+                <div className="sidebar__profileIcons flex items-center gap-1">
                     <MicIcon />
                     <HeadsetIcon />
                     {/* <div className="relative cursor-pointer text-sm"> 
