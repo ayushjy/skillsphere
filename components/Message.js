@@ -6,12 +6,42 @@ import { HiEllipsisVertical } from "react-icons/hi2";
 import { AiOutlineDelete } from "react-icons/ai";
 import { VscCopy } from "react-icons/vsc"; 
 import db from './Firebase';
+import { useSession } from "Next-auth/react"
 import { selectInput } from "@/lib/features/input/inputSlice";
 
-const Message = ({ id, user, textmessages, timestamp,input}) => {
+const Message = ({ id, textmessages, timestamp,input}) => {
+
+  const { data: session } = useSession()
   const [showContextMenu, setShowContextMenu] = useState(false);  
   const selectChannelId = useAppSelector(state => state.app.channelId);
   const searchInput = useAppSelector(selectInput);
+  return (
+       
+           <div>
+               {session ? <User session={session} 
+               selectChannelId={selectChannelId} 
+               searchInput={searchInput} 
+               showContextMenu={showContextMenu}
+               setShowContextMenu={setShowContextMenu}
+               id={id}
+               textmessages={textmessages}
+               timestamp={timestamp}
+               input={input}/> :null}
+           </div>
+       )
+}
+export default Message
+
+
+
+function User({session,
+  selectChannelId,
+  searchInput,
+  showContextMenu,
+  setShowContextMenu,
+  id,
+  textmessages,timestamp,input}){
+
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (!e.target.closest('.message')) {
@@ -44,14 +74,14 @@ const Message = ({ id, user, textmessages, timestamp,input}) => {
       console.error("Failed to copy text:", error);
     }
   };
-  
 
-  return (
+
+  return(
     <div className="message max-w-xl group relative bg-gray-700 mb-2 ml-1 rounded-md" >
 
-      <Avatar src={user.photo} />
+      <Avatar src={session.user.image} />
       <div className="message__info">
-        <h4 className="text-xs">{user.displayName}<span className="message__timestamp">{new Date(timestamp?.toDate()).toUTCString()}</span></h4>
+        <h4 className="text-xs">{session.user.name}<span className="message__timestamp">{new Date(timestamp?.toDate()).toUTCString()}</span></h4>
         {textmessages.filter((item) => {
           return !searchInput || searchInput.toLowerCase() === '' ? item : (typeof item === 'string' && item.toLowerCase().includes(searchInput));
         }).map((item, index) => (
@@ -76,6 +106,4 @@ const Message = ({ id, user, textmessages, timestamp,input}) => {
       ) : ""}
     </div>
   )
-};
-
-export default Message
+}

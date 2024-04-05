@@ -289,12 +289,18 @@ li{
 
 .message{
   display:flex ;
-  align-items: center;
-  padding: 20px;
+  /* justify-content: center; */
+  align-items: start;
+  padding-left: 20px;
+  padding-top:5px;
+  padding-bottom:5px;
   color:white;
+  width:max-content;
 }
 .message__info{
   margin-left: 20px;
+  margin-right: 10px;
+
 }
 .message__timestamp{
   color:gray;

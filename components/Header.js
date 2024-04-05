@@ -38,7 +38,7 @@ function User({ session, handleSignOut }) {
                         <Link href="/about">COMPANY</Link>
                     </li>
                     <li className=" tracking-wide border-b-2 border-transparent hover:text-yellow-500 hover:border-yellow-500">
-                        <Link href="/discord">DISCUSSIONS</Link>
+                        <Link href="/discussion">DISCUSSIONS</Link>
                     </li>
                     {/* <li className=" tracking-wide border-b-2 border-transparent hover:text-yellow-500 hover:border-yellow-500">
                         <Link href="/contact">CONTACT</Link>

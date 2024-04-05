@@ -1,22 +1,38 @@
+import { useState,useEffect } from 'react';
 import Link from 'next/link';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
-import InfoOutLinedIcon from '@mui/icons-material/InfoOutLined';
+import { IoIosInformationCircleOutline } from "react-icons/io";
 import CallIcon from '@mui/icons-material/Call';
 import MicIcon from '@mui/icons-material/Mic';
 import HeadsetIcon from '@mui/icons-material/Headset';
 import SettingsIcon from '@mui/icons-material/Settings';
 import SidebarChannel from './SidebarChannel';
+import { useAppSelector } from '@/lib/hooks';
 import { Avatar } from '@mui/material';
 import { useSession } from "Next-auth/react"
+import db, { auth } from './Firebase';
+
+import {addDoc, collection, onSnapshot } from "firebase/firestore";
 
 const Sidebar = () => {
-    const { data: session } = useSession()
     const [channels, setChannels] = useState([]);
-    const userinfo = useAppSelector(selectUser);
     const selectChannelId = useAppSelector(state => state.app.channelId);
     const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+    const { data: session } = useSession()
+   return (
+        
+            <div>
+                {session ? <User session={session} channels={channels} setChannels={setChannels} isPopupVisible={isPopupVisible} setIsPopupVisible={setIsPopupVisible} /> :null}
+            </div>
+        )
+}
+export default Sidebar
+
+function User({session,channels,setChannels,isPopupVisible,setIsPopupVisible}){
+   
 
     const handleAddChannel = async (e) => {
         e.preventDefault();
@@ -28,22 +44,24 @@ const Sidebar = () => {
         }
     };
 
-    
+    useEffect(() => {
+        const unsubscribe = onSnapshot(collection(db, "channels"), (querySnapshot) => {
+            const channelsData = querySnapshot.docs.map((doc) => ({
+                id: doc.id,
+                channel: doc.data(),
+            }));
+            setChannels(channelsData);
+        });
 
-    return (
-        
-            <div>
-                {session ? User({ session }) :null}
-            </div>
-        )
-}
-export default Sidebar
+        // Cleanup function to unsubscribe when the component unmounts
+        return () => unsubscribe();
+    }, []);
 
-function User({session}){
+
     return(
         <div className='sidebar '>
             <div className="sidebar__top">
-                <h3 className='bold'>TrickTalk</h3>
+                <Link href={"/"}><h3 className='bold'>Skillsphere</h3></Link>
                 <ExpandMoreIcon />
             </div>
             <div className="sidebar__channels">
@@ -85,7 +103,7 @@ function User({session}){
                 <div className="sidebar__profileIcons flex items-center">
                     <MicIcon />
                     <HeadsetIcon />
-                    <div className="relative cursor-pointer text-sm"> 
+                    {/* <div className="relative cursor-pointer text-sm"> 
                         <SettingsIcon
                             onMouseEnter={() => setIsPopupVisible(true)}
                             />
@@ -99,7 +117,7 @@ function User({session}){
                                 Logout
                             </div>
                         )}
-                    </div>
+                    </div> */}
                 </div>
 
             </div>
