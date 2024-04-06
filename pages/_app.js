@@ -1,5 +1,5 @@
 import '@/styles/globals.css'
-import { SessionProvider } from "Next-auth/react"
+import { SessionProvider } from "next-auth/react"
 import store from '@/lib/store'
 import { Provider } from 'react-redux'
 

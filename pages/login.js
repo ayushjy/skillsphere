@@ -5,7 +5,7 @@ import { HiFingerPrint, HiAtSymbol } from "react-icons/hi";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineGithub } from "react-icons/ai";
 import {useState} from 'react';
-import { signIn } from "Next-auth/react"
+import { signIn } from "next-auth/react"
 
 const login = () => {
 

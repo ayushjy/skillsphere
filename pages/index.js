@@ -7,7 +7,7 @@ import SpecialFeatures from "@/components/SpecialFeatures"
 import JoinNow from "@/components/JoinNow"
 import LandingPage from "@/components/LandingPage"
 import CommunityExperts from "@/components/CommunityExperts"
-import { useSession } from "Next-auth/react"
+import { useSession } from "next-auth/react"
 import { login,logout } from "@/lib/features/user/userSlice"
 import { useAppDispatch } from "@/lib/hooks"
 
