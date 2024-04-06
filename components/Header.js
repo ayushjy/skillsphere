@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useRouter } from "next/router"
-import { signOut, useSession } from "Next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 import { useAppSelector } from "@/lib/hooks"
 import { selectUser } from "@/lib/features/user/userSlice"
 

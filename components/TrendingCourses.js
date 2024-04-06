@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useSession } from "Next-auth/react"
+import { useSession } from "next-auth/react"
 const TrendingCourses = () => {
     const { data: session } = useSession()
     return (

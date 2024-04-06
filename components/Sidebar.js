@@ -11,7 +11,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import SidebarChannel from './SidebarChannel';
 import { useAppSelector } from '@/lib/hooks';
 import { Avatar } from '@mui/material';
-import { useSession } from "Next-auth/react"
+import { useSession } from "next-auth/react"
 import db, { auth } from './Firebase';
 
 import {addDoc, collection, onSnapshot } from "firebase/firestore";

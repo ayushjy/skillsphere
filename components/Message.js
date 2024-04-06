@@ -6,7 +6,7 @@ import { HiEllipsisVertical } from "react-icons/hi2";
 import { AiOutlineDelete } from "react-icons/ai";
 import { VscCopy } from "react-icons/vsc"; 
 import db from './Firebase';
-import { useSession } from "Next-auth/react"
+import { useSession } from "next-auth/react"
 import { selectInput } from "@/lib/features/input/inputSlice";
 
 const Message = ({ id, textmessages, timestamp,input}) => {
