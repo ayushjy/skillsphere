@@ -16,32 +16,39 @@ const about = () => {
     <div>
       <Header />
 
-      <div className="w-full  py-14 mt-32  bg-red-200 ">
-        <div className="flex flex-col justify-center items-center">
-          <div className="text-3xl home_text pb-4 w-3/4 text-gray-800">Who we are</div>
-          <div className="flex justify-center w-3/4 gap-28  ">
-            <div className="flex flex-col w-4/6 ">
-              <div className="leading-relaxed text-base home_text2 pb-9 text-gray-800">skillsphere is an online transformative upskilling platform for working tech professionals. Our industry-vetted approach towards teaching & training young professionals not only helps them upskill but also #CreateImpact in the real world. We are devoted to creating an ecosystem that nurtures our learners and assists them in unlocking talent, skills & opportunities at every stage of their careers. Learners enrolled with us are taught, guided, and mentored by industry veterans and experts from leading tech organisations, including Google, Meta, Netflix, Microsoft, Amazon, Hotstar, Twitter etc.</div>
-            </div>
-            <div className="flex flex-col w-1/2 gap-10">
-              <div className="flex flex-col justify-start">
-                <div className="text-3xl hundredx text-blue-500">50M+</div>
-                <div className="text-lg home_text3 text-gray-600">Active Learners</div>
-              </div>
-              <div className="flex flex-col justify-start">
-                <div className="text-3xl hundredx text-yellow-500">1B+</div>
-                <div className="text-lg home_text3 text-gray-600">Minutes Watched</div>
-              </div>
-              <div className="flex flex-col justify-start">
-                <div className="text-3xl hundredx text-red-800">2000+</div>
-                <div className="text-lg home_text3 text-gray-600">Live Classes</div>
-              </div>
-            </div>
+      <div className="w-full flex px-40 py-14 mt-32">
+        <div className="flex flex-col w-1/2 justify-center items-start">
+          <div className="text-3xl w-full home_text pb-4 text-gray-800">Who we are</div>
+          <div className="flex flex-col gap-4">
+          <div className="leading-relaxed text-base home_text2  text-gray-800">skillsphere is an online transformative upskilling platform for working tech professionals. Our industry-vetted approach towards teaching & training young professionals not only helps them upskill but also #CreateImpact in the real world.</div>
+          <div className="leading-relaxed text-base home_text2  text-gray-800">We are devoted to creating an ecosystem that nurtures our learners and assists them in unlocking talent, skills & opportunities at every stage of their careers.</div>
+          <div className="leading-relaxed text-base home_text2  text-gray-800">Learners enrolled with us are taught, guided, and mentored by industry veterans and experts from leading tech organisations, including Google, Meta, Netflix, Microsoft, Amazon, Hotstar, Twitter etc.</div>
           </div>
+        </div>
+        <div className="w-1/2 flex justify-center items-center">
+          <img src="/assets/aboutus2.jpg" alt="about" className="w-3/4" />
         </div>
       </div>
 
       {/* <Client/>      */}
+
+
+  
+      <div className="flex justify-center items-center w-full bg-red-300 gap-72 py-12">
+              <div className="flex flex-col items-center">
+                <div className="text-3xl text-[#5c3e84] hundredx text">50M+</div>
+                <div className="text-lg home_text3 text-[#686ee2]">Active Learners</div>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="text-3xl text-[#5c3e84] hundredx text">1B+</div>
+                <div className="text-lg home_text3 text-[#686ee2]">Minutes Watched</div>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="text-3xl text-[#5c3e84] hundredx text">2000+</div>
+                <div className="text-lg home_text3 text-[#686ee2]">Live Classes</div>
+              </div>
+            </div>
+
 
 
       <div className="flex w-full px-40 mt-32 gap-12">
@@ -62,17 +69,16 @@ const about = () => {
 
       </div>
 
-      <div className="flex flex-col justify-center items-center px-32 h-[300px] gap-8 mb-28">
-        <div className="home_button text-2xl ">
+      <div className="flex flex-col justify-center items-center mx-32 rounded-lg bg-red-300 mb-28">
+        <div className="home_button text-2xl pt-6">
           Our students say
         </div>
         <div>
           <Slider />
         </div>
-
       </div>
 
-      
+
       <div className="w-full  h-32  flex justify-center items-center text-4xl home_text3 mb-24 text-gray-700">
         We'd love to help you scale. <button onClick={handleClick} className="hover:underline home_button text-green-600"> Let's talk </button>
         <img src="/assets/contact.png" alt="Image" className='w-24 h-20 ml-2' />

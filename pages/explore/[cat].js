@@ -12,6 +12,9 @@ import { IoLogoJavascript } from "react-icons/io5";
   
 
 const cat = ({item,pagename}) => {
+    if (!item) {
+        return <div>Loading...</div>; 
+      }
     return (
 
         <div>

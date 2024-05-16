@@ -7,6 +7,7 @@ const images = [
     "/assets/josh.jpg",
     "/assets/harry.jpg",
     "/assets/jsmastry.jpg",
+    "/assets/codergyan.jpg",
     "/assets/netninja.jpg",
     "/assets/apnacollege.jpg",
     "/assets/chaiaurcode.jpg",
