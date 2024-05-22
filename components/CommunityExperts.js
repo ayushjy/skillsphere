@@ -19,7 +19,7 @@ const images = [
 
 export default function CommunityExperts() {
   return (
-    <div className="banner my-48">
+    <div className="banner my-48 ">
       <h2 className='text-3xl home_text pb-10'>Top Educators from amazing YouTube community</h2>
       <Banner images={images} speed={20000} />
     </div>

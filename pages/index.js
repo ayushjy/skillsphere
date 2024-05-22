@@ -10,6 +10,7 @@ import CommunityExperts from "@/components/CommunityExperts"
 import { useSession } from "next-auth/react"
 import { login,logout } from "@/lib/features/user/userSlice"
 import { useAppDispatch } from "@/lib/hooks"
+import Accordian from "@/components/Accordian"
 
 const Home = ({data}) => {
   const dispatch= useAppDispatch();
@@ -36,10 +37,15 @@ const Home = ({data}) => {
       </Head>
       <div>
       <Header />
-      <LandingPage/>   
+      <LandingPage/>
       <CommunityExperts />
       <TrendingCourses />
+      <div className="max-lg:hidden">
       <SpecialFeatures />
+      </div>
+      <div className="lg:hidden"> 
+      <Accordian/>
+      </div>
       <JoinNow />
       <Footer />
     </div>

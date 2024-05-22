@@ -14,11 +14,11 @@ export default TrendingCourses
 
 function User(){
     return(
-        <div>
+        
         <div className=" mt-28">
         <h2 className="text-center text-5xl home_text">Trending courses ongoing</h2>
-        <p className="text-center text-lg home_text3 mt-6 mb-12">These are the selected courses from YouTube to build your focus on learning rather than finding courses.</p>
-        <div className="flex justify-center flex-wrap w-full h-2/5  gap-8  px-36">
+        <p className="text-center text-lg home_text3 mt-6 mb-12 max-lg:px-4">These are the selected courses from YouTube to build your focus on learning rather than finding courses.</p>
+        <div className="flex justify-center flex-wrap w-full h-2/5  gap-8  px-36 max-lg:px-0">
 
           <div className="flex flex-col border  border-x-zinc-950  border-b-zinc-950 rounded-2xl h-1/5 w-[350px]">
             <div className="h-1/2">
@@ -57,12 +57,12 @@ function User(){
           </Link>
         </div>
       </div>
-    </div>
+    
     )
 }
 function Guest(){
     return(
-        <div>
+        
         <div className=" mt-28">
         <h2 className="text-center text-5xl home_text">Trending courses ongoing</h2>
         <p className="text-center text-lg home_text3 mt-6 mb-12">These are the selected courses from YouTube to build your focus on learning rather than finding courses.</p>
@@ -105,6 +105,6 @@ function Guest(){
           </Link>
         </div>
       </div>
-    </div>
+    
     )
 }
