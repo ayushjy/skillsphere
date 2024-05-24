@@ -40,6 +40,9 @@ function User() {
 }
 
 function Guest() {
+  const crypto = require('crypto');
+const secret = crypto.randomBytes(32).toString('hex');
+console.log(secret);
   return (
     <div className="flex w-full h-[600px] pt-36 px-32">
       <div className="w-4/5 flex flex-col justify-center gap-2  pr-24 ">
