@@ -14,12 +14,12 @@ const login = () => {
 
     async function handleGoogleSignIn (event){
         event.preventDefault(); 
-        await signIn('google',{callbackUrl:"http://https://skillsphere-ayush-jyoti-edtech.vercel.app/"})
+        await signIn('google',{callbackUrl:"https://skillsphere-ayush-jyoti-edtech.vercel.app/"})
     }
 
     async function handleGithubSignIn (event){
         event.preventDefault(); 
-        await signIn('github',{callbackUrl:"http://localhost:3000/"})
+        await signIn('github',{callbackUrl:"https://skillsphere-ayush-jyoti-edtech.vercel.app/"})
         
     }
      
