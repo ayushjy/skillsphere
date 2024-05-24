@@ -14,7 +14,7 @@ const login = () => {
 
     async function handleGoogleSignIn (event){
         event.preventDefault(); 
-        await signIn('google',{callbackUrl:"http://localhost:3000/"})
+        await signIn('google',{callbackUrl:"http://https://skillsphere-ayush-jyoti-edtech.vercel.app/"})
     }
 
     async function handleGithubSignIn (event){
