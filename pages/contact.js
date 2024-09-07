@@ -16,7 +16,7 @@ const contact = () => {
           <div className="h-0.5 bg-gray-200"></div>
           <div className="flex flex-col my-4">
             <p className="home_text text-xl">Contact</p>
-            <p className="home_text3 text-base text-gray-500">9153738634</p>
+            <p className="home_text3 text-base text-gray-500">9608891616</p>
           </div>
           <div className="h-0.5 bg-gray-200"></div>
           <div className="flex flex-col my-4">
