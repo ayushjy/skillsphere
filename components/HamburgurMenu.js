@@ -14,12 +14,12 @@ const HamburgurMenu = ({ session, isMenuOpen, setIsMenuOpen }) => {
   };
   return (
     <div className='h-screen fixed top-0 w-full bg-white z-50 flex flex-col md:hidden'>
-      <div className="h-[75px] w-screen px- flex items-center justify-between bg-white  md:hidden">
-        <div className="flex items-center px-6">
-          <Link href="/"><Image width={200} height={100} src="/assets/logo4.png" /></Link>
+      <div className="h-[75px] w-full px-4 flex items-center justify-between bg-white gap-28 md:hidden">
+        <div className="flex items-center">
+          <Link href="/"><Image width={200} height={100} src="/assets/logo4.png"/></Link>
         </div>
-        <div className="mr-10 border border-pink-500 hover:border-hidden hover:bg-gray-200 w-16 h-12 flex justify-center items-center rounded-lg hover:cursor-pointer"  >
-          <IoMenuOutline onClick={() => setIsMenuOpen(false)} size={40} className="text-gray-700 hover:text-pink-600" />
+        <div className="border border-pink-500 hover:border-hidden hover:bg-gray-200 w-12 h-10 flex justify-center items-center rounded-lg hover:cursor-pointer"  >
+          <IoMenuOutline onClick={() => setIsMenuOpen(false)} size={32} className="text-gray-700 hover:text-pink-600" />
         </div>
       </div>
     <div className='w-full h-full flex justify-center items-center' >
