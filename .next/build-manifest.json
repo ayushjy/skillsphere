@@ -32,11 +32,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/about.js"
     ],
-    "/discussion": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/discussion.js"
-    ],
     "/explore": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
