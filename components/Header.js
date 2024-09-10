@@ -3,16 +3,18 @@ import Image from "next/image"
 import { useRouter } from "next/router"
 import { IoMenuOutline } from "react-icons/io5";
 import { signOut, useSession } from "next-auth/react"
-import { useAppSelector } from "@/lib/hooks"
-import { selectUser } from "@/lib/features/user/userSlice"
 import HamburgurMenu from "./HamburgurMenu";
 import { useState } from "react";
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const router = useRouter();
     const { data: session } = useSession()
-    // const userInfo = useAppSelector(selectUser);
-    // console.log(userInfo)
+
+
+    const signinalert = () => {
+        alert("Sign-in first to access the page")
+    }
+
     const handleSignOut = async (event) => {
         event.preventDefault();
         await signOut({ redirect: false })
@@ -21,11 +23,10 @@ const Header = () => {
     const openMenu = (e) => {
         e.preventDefault()
         setIsMenuOpen(!isMenuOpen)
-        console.log("first")
     }
     return (
         <div>
-            {session ? User({ session, handleSignOut, openMenu, isMenuOpen, setIsMenuOpen }) : Guest()}
+            {session ? User({ session, handleSignOut, openMenu, isMenuOpen, setIsMenuOpen }) : Guest({ openMenu, isMenuOpen, setIsMenuOpen, signinalert })}
         </div>
     )
 }
@@ -49,9 +50,6 @@ function User({ session, handleSignOut, openMenu, isMenuOpen, setIsMenuOpen }) {
                         <li className=" tracking-wide border-b-2 border-transparent hover:text-yellow-500 hover:border-yellow-500">
                             <Link href="/discussion">DISCUSSIONS</Link>
                         </li>
-                        {/* <li className=" tracking-wide border-b-2 border-transparent hover:text-yellow-500 hover:border-yellow-500">
-                        <Link href="/contact">CONTACT</Link>
-                    </li> */}
                     </ul>
                     <div className=" tracking-wide ">
                         <div className="flex flex-col mt-8 space-y-1">
@@ -79,10 +77,11 @@ function User({ session, handleSignOut, openMenu, isMenuOpen, setIsMenuOpen }) {
         </>
     )
 }
-function Guest() {
+function Guest({ signinalert, openMenu, isMenuOpen, setIsMenuOpen }) {
     return (
-        <>
-            <div className="h-[75px] w-full px-32 flex items-center justify-between bg-white fixed top-0 max-sm:gap-16   max-md:px-6 max-xl:px-12 max-sm:px-4 max-lg:px-12 ">
+
+        <div>
+            <div className="h-[75px] w-screen px-32 flex items-center justify-between bg-white fixed top-0  max-md:px-6 max-xl:px-12 max-sm:px-4 max-lg:px-12 max-md:hidden">
                 <div className="  flex items-center ">
                     <Link href="/"><Image width={200} height={100} src="/assets/logo4.png" /></Link>
                 </div>
@@ -92,12 +91,26 @@ function Guest() {
                         <li className="tracking-wide border-b-2 border-transparent hover:text-yellow-500 hover:border-yellow-500 max-sm:text-sm max-sm:ml">
                             <Link href="/about">COMPANY</Link>
                         </li>
+                        <li onClick={signinalert} className="cursor-pointer tracking-wide border-b-2 border-transparent hover:text-yellow-500 hover:border-yellow-500">
+                            DISCUSSIONS
+                        </li>
                     </ul>
                     <Link href="/login"><button className="home_text1 tracking-wide  rounded bg-[#fe735b] hover:bg-[#f05539]  text-white px-4  py-2 uppercase max-sm:text-xs max-sm:mr-4 max-sm:px-2 max-sm:py-3 max-sm:w-full">Sign in</button></Link>
                 </div>
             </div>
             
-        </>
+            <div className="h-[75px] w-full px-4 flex items-center justify-between bg-white fixed top-0 max-sm:gap-28 md:hidden">
+                <div className="flex items-center ">
+                    <Link href="/"><Image width={200} height={100} src="/assets/logo4.png" /></Link>
+                </div>
+                <div onClick={openMenu} className=" border border-pink-500 hover:border-hidden hover:bg-gray-200 w-12 h-10 flex justify-center items-center rounded-lg hover:cursor-pointer"  >
+                    <IoMenuOutline size={32} className="text-gray-700 hover:text-pink-600" />
+                </div>
+            </div>
+            {isMenuOpen ? <HamburgurMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} /> : null}
+        </div>
+
+
 
     )
 }

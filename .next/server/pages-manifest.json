@@ -3,7 +3,7 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/about": "pages/about.js",
   "/login": "pages/login.js",
-  "/explore": "pages/explore.js"
+  "/discussion": "pages/discussion.js",
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js"
 }

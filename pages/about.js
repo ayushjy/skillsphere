@@ -93,10 +93,9 @@ const about = () => {
         <div className="flex flex-col ">
           <div className="flex flex-col mb-4">
             <div className="home_text text-xl max-sm:text-lg">Our Head Office</div>
-            <div className="home_text3 text-base text-gray-500 max-sm:text-sm">InterviewBit Technologies Private Limited
+            <div className="home_text3 text-base text-gray-500 max-sm:text-sm">skillsphere Private Limited,
               9th Floor, Sakti Statesman
-              GreenGlen Layout, Behind Iblur Lake
-              Bellandur, Bangalore-09</div>
+              GreenGlen Layout,Chandigarh</div>
           </div>
           <div className="h-0.5 bg-gray-200"></div>
           <div className="flex flex-col my-4">
@@ -109,8 +108,12 @@ const about = () => {
             <p className="home_text3 text-base text-gray-500 max-sm:text-sm">ayushjyoti0321@gmail.com</p>
           </div>
         </div>
-        <div className="w-full">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3428.393080758789!2d76.620666!3d30.763545299999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ffb3feb66675d%3A0x3dfa02b5f19ece64!2sRVR%20The%20Institute%20of%20Learning!5e0!3m2!1sen!2sin!4v1684164701669!5m2!1sen!2sin" style={{ height: 300, border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        
+        <div className="w-full">          
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126066.35434515133!2d76.67871427761112!3d30.729703200216495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed0be66ec96b%3A0xa5ff67f9527319fe!2sChandigarh!5e0!3m2!1sen!2sin!4v1725987555561!5m2!1sen!2sin" 
+        style={{height: 300, border: 0 }} 
+        className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl" 
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        
         </div>
       </div>
 
