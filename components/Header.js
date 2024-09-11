@@ -98,7 +98,7 @@ function Guest({ signinalert, openMenu, isMenuOpen, setIsMenuOpen }) {
                     <Link href="/login"><button className="home_text1 tracking-wide  rounded bg-[#fe735b] hover:bg-[#f05539]  text-white px-4  py-2 uppercase max-sm:text-xs max-sm:mr-4 max-sm:px-2 max-sm:py-3 max-sm:w-full">Sign in</button></Link>
                 </div>
             </div>
-            
+
             <div className="h-[75px] w-full px-4 flex items-center justify-between bg-white fixed top-0 max-sm:gap-28 md:hidden">
                 <div className="flex items-center ">
                     <Link href="/"><Image width={200} height={100} src="/assets/logo4.png" /></Link>
@@ -107,7 +107,7 @@ function Guest({ signinalert, openMenu, isMenuOpen, setIsMenuOpen }) {
                     <IoMenuOutline size={32} className="text-gray-700 hover:text-pink-600" />
                 </div>
             </div>
-            {isMenuOpen ? <HamburgurMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} /> : null}
+            {isMenuOpen ? <HamburgurMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} signinalert={signinalert}/> : null}
         </div>
 
 

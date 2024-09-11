@@ -5,7 +5,7 @@ import { IoMenuOutline } from "react-icons/io5";
 import { signOut, useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 
-const HamburgurMenu = ({ isMenuOpen, setIsMenuOpen }) => {
+const HamburgurMenu = ({ isMenuOpen, setIsMenuOpen, signinalert }) => {
   const { data: session } = useSession()
   const router = useRouter();
   const handleSignOut = async (event) => {
@@ -16,7 +16,7 @@ const HamburgurMenu = ({ isMenuOpen, setIsMenuOpen }) => {
 
   return (
     <div>
-      {session ? User({ session, isMenuOpen, setIsMenuOpen, handleSignOut }) : Guest({ isMenuOpen, setIsMenuOpen })}
+      {session ? User({ session, isMenuOpen, setIsMenuOpen, handleSignOut }) : Guest({ signinalert, isMenuOpen, setIsMenuOpen })}
     </div>
   )
 }
@@ -62,7 +62,7 @@ function User({ session, handleSignOut, isMenuOpen, setIsMenuOpen }) {
 }
 
 
-function Guest({ isMenuOpen, setIsMenuOpen }) {
+function Guest({ signinalert, isMenuOpen, setIsMenuOpen }) {
   return (
     <div className='h-screen fixed top-0 w-full bg-white z-50 flex flex-col md:hidden'>
       <div className="h-[75px] w-full px-4 flex items-center justify-between bg-white gap-28 md:hidden">
@@ -81,8 +81,8 @@ function Guest({ isMenuOpen, setIsMenuOpen }) {
             <li className="tracking-wide ">
               <Link className='border-b-2 border-transparent hover:text-yellow-500 hover:border-yellow-500' href="/about">COMPANY</Link>
             </li>
-            <li className=" tracking-wide">
-              <Link className='border-b-2 border-transparent hover:text-yellow-500 hover:border-yellow-500' href="/discussion">DISCUSSIONS</Link>
+            <li onClick={signinalert} className="cursor-pointer tracking-wide border-b-2 border-transparent hover:text-yellow-500 hover:border-yellow-500">
+              DISCUSSIONS
             </li>
           </ul>
         </div>

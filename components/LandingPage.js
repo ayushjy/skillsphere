@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 const LandingPage = () => {
   return (
-    <div className="flex w-full h-[600px] pt-28 px-32 max-lg:flex-col max-lg:h-full max-md:px-6 max-xl:px-12 max-sm:px-4 max-lg:px-12 ">
+    <div className="flex w-full h-[600px] pt-28 px-32 max-lg:flex-col max-lg:h-full max-md:px-6 max-xl:px-12 max-sm:px-4 max-lg:px-12">
     <div className="w-4/5  flex flex-col justify-center gap-2  pr-24  max-lg:w-full">
       <div>
         <p className="text-7xl max-sm:text-5xl max-xl:text-6xl  home_text">We increase your learning experiance by

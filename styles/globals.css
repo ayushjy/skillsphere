@@ -4,8 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.app{
+.discussion{
   display: flex;
+
 }
 li{
     font-family: 'Poppins', sans-serif;

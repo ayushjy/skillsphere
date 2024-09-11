@@ -59,10 +59,9 @@ function User({session,channels,setChannels,isPopupVisible,setIsPopupVisible}){
 
 
     return(
-        <div className='sidebar '>
+        <div className='sidebar'>
             <div className="sidebar__top">
                 <Link href={"/"}><h3 className='bold'>Skillsphere</h3></Link>
-                {/* <ExpandMoreIcon /> */}
             </div>
             <div className="sidebar__channels">
                 <div className="sidebar__channelsHeader">
