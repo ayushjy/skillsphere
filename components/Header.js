@@ -12,7 +12,7 @@ const Header = () => {
 
 
     const signinalert = () => {
-        alert("Sign-in first to access the page")
+        alert("Sign-in first to join the disussion room")
     }
 
     const handleSignOut = async (event) => {
